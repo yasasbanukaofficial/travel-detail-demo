@@ -1,12 +1,17 @@
-import logging
+import logging, os
 from dotenv import load_dotenv
 from livekit import api
 from livekit.agents import WorkerOptions, cli, JobContext, RoomInputOptions, get_job_context
 from livekit.agents.llm import function_tool
 from livekit.agents.voice import Agent, AgentSession
 from livekit.plugins import openai, silero, noise_cancellation, speechmatics
+from pymongo import MongoClient
 
 load_dotenv()
+connection_string = os.environ.get("MONGO_CONNECTION_STRING")
+client = MongoClient(connection_string)
+user_collection = client.travelop.users
+
 logger = logging.getLogger("simple-flow")
 logger.setLevel(logging.INFO)
 
@@ -17,15 +22,29 @@ class UserDetails:
     interests: str | None = None
     mobility: str | None = None
 
+
 class TravelDetails:
     location: str | None = None
     budget: str | None = None
+
 
 class ContextDetails:
     def __init__(self):
         self.user_details = UserDetails()
         self.travel_details = TravelDetails()
 
+    def to_dict(self):
+        return {
+            "name": self.user_details.name,
+            "age": self.user_details.age,
+            "gender": self.user_details.gender,
+            "interests": self.user_details.interests,
+            "mobility": self.user_details.mobility,
+            "travel_details": {
+                "location": self.travel_details.location,
+                "budget": self.travel_details.budget,
+            }
+        }
 
 class BaseAgent(Agent):
     def __init__(self, context: ContextDetails, instructions: str) -> None:
@@ -92,7 +111,7 @@ class AskDetailsAgent(BaseAgent):
         """
         Receives the user's gender and store it in the context and transition to asking their user interests.
         """
-        UserDetails.gender = gender
+        self.context.user_details.gender = gender
         return f"User is a {gender}. Now continue asking."
 
 
@@ -101,7 +120,7 @@ class AskDetailsAgent(BaseAgent):
         """
         Receives the user's interests in traveling, acknowledge it and store it in the context and transition to asking their mobility.
         """
-        UserDetails.interests = interest
+        self.context.user_details.interests = interest
         return f"User likes {interest} surroundings. Before continuing to next question tell some best nature categories related to users {interest} and continue questioning."
 
 
@@ -124,13 +143,22 @@ class AskDetailsAgent(BaseAgent):
     @function_tool()
     async def collect_user_budget(self, budget: str) -> Agent:
         """
-        Receives the user's budget and store it in the context, summarize the details and end the conversation.
+        Receives the user's budget and store it in the context and database, summarize the details and end the conversation.
         """
         self.context.travel_details.budget = budget
+        await self.add_to_database()
         return f"User's budget is {budget}. Explain if this amount is enough for a trip and start summarizing and end the conversation"
 
+
+    async def add_to_database(self):
+        """
+        Add the user's details to the database.
+        """
+        user_collection.insert_one(self.context.to_dict())
+
+
     @function_tool()
-    async def ending_call(self):
+    async def ending_session(self):
         """
         Called when the conversation ends.
         """

@@ -10,5 +10,6 @@ dependencies = [
     "livekit-plugins-openai>=1.1.1",
     "livekit-plugins-silero>=1.1.1",
     "livekit-plugins-speechmatics>=1.1.1",
+    "pymongo[srv]==3.12",
     "python-dotenv>=1.1.0",
 ]
