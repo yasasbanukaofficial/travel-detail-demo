@@ -1,0 +1,15 @@
+[project]
+name = "travel-collector-ai"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.12"
+dependencies = [
+    "livekit>=1.0.8",
+    "livekit-agents>=1.1.1",
+    "livekit-plugins-noise-cancellation>=0.2.4",
+    "livekit-plugins-openai>=1.1.1",
+    "livekit-plugins-silero>=1.1.1",
+    "livekit-plugins-speechmatics>=1.1.1",
+    "pymongo[srv]==3.12",
+    "python-dotenv>=1.1.0",
+]
