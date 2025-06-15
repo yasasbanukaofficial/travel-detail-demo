@@ -1,6 +1,7 @@
 import logging
 from dotenv import load_dotenv
-from livekit.agents import WorkerOptions, cli, JobContext, RoomInputOptions
+from livekit import api
+from livekit.agents import WorkerOptions, cli, JobContext, RoomInputOptions, get_job_context
 from livekit.agents.llm import function_tool
 from livekit.agents.voice import Agent, AgentSession
 from livekit.plugins import openai, silero, noise_cancellation, speechmatics
@@ -21,8 +22,10 @@ class TravelDetails:
     budget: str | None = None
 
 class ContextDetails:
-    user_details = UserDetails
-    travel_details = TravelDetails
+    def __init__(self):
+        self.user_details = UserDetails()
+        self.travel_details = TravelDetails()
+
 
 class BaseAgent(Agent):
     def __init__(self, context: ContextDetails, instructions: str) -> None:
@@ -121,10 +124,31 @@ class AskDetailsAgent(BaseAgent):
     @function_tool()
     async def collect_user_budget(self, budget: str) -> Agent:
         """
-        Receives the user's budget and store it in the context and end the conversation by summarizing.
+        Receives the user's budget and store it in the context, summarize the details and end the conversation.
         """
         self.context.travel_details.budget = budget
         return f"User's budget is {budget}. Explain if this amount is enough for a trip and start summarizing and end the conversation"
+
+    @function_tool()
+    async def ending_call(self):
+        """
+        Called when the conversation ends.
+        """
+        current_speech = self.session.current_speech
+        if current_speech:
+            await current_speech.wait_for_playout()
+
+        await hangup_call()
+
+
+async def hangup_call():
+    ctx = get_job_context()
+    await ctx.api.room.delete_room(
+        api.DeleteRoomRequest(
+            room=ctx.room.name,
+        )
+    )
+
 
 async def entrypoint(ctx: JobContext) -> None:
     await ctx.connect()
@@ -137,6 +161,7 @@ async def entrypoint(ctx: JobContext) -> None:
             noise_cancellation=noise_cancellation.BVC(),
         ),
     )
+
 
 if __name__ == "__main__":
     cli.run_app(WorkerOptions(entrypoint_fnc=entrypoint))
