@@ -1,9 +1,13 @@
+'use client';
 import ParticlesBackground from "@/components/ui/ParticlesBackground";
 import SplitText from "@/components/ui/SplitText";
 import RotatingText from "@/components/ui/RotatingText";
 import Button from "@/components/ui/Button";
+import Link from "next/link";
 
 export default function Home() {
+  const handleSupportEvent = () => {
+  }
   return (
     <>
       <div className="fixed inset-0 -z-10 w-screen h-screen overflow-hidden">
@@ -46,10 +50,9 @@ export default function Home() {
               />
             </div>
           </div>
-
-          <div className={"mt-9"}>
-            <Button />
-          </div>
+          <Link href="/support">
+            <Button text = {"Speak to our agent"} />
+          </Link>
         </div>
 
     </>
