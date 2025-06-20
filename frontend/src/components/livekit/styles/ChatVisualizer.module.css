@@ -1,0 +1,22 @@
+.mainContainer{
+    background: transparent;
+    display: flex;
+    width: fit-content;
+}
+
+.section {
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    padding: 10px;
+    width: 48vw;
+    height: 75vh;
+    margin: auto;
+}
+
+.messageSection{
+    border-radius: 30px 0px 0px 30px;
+}
+
+.visualizerSection{
+    border-radius: 0px 30px 30px 0px;
+}

@@ -1,7 +1,6 @@
 .main {
     background: black;
-    width: 100vw;
-    height: 100vw;
+    height: 100vh;
     margin: 0;
     text-align: center;
     font-family: sans-serif;
@@ -14,7 +13,7 @@
 .controlSection {
     background: transparent;
     border-radius: 30px;
-    width: 100vw;
+    width: fit-content;
     border: none;
     color: white;
     margin: auto;
