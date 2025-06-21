@@ -46,32 +46,6 @@
     margin-top: 10px;
     width: fit-content;
 }
-
-/*.button {*/
-/*    cursor: pointer;*/
-/*    border-radius: 30px;*/
-/*}*/
-
-/*.disconnectBtn {*/
-/*    background: darkred;*/
-/*    border-radius: 30px;*/
-/*    color: white;*/
-/*    padding: 10px 20px;*/
-/*    width: auto;*/
-/*    font-size: 16px;*/
-/*}*/
-
-/*.toggleBtn{*/
-/*    border: white 2px solid;*/
-/*    padding: 10px;*/
-/*}*/
-
-/*.toggleBtnActive {*/
-/*    border: white 2px solid;*/
-/*    padding: 10px;*/
-/*    background: white;*/
-/*    color: black;*/
-/*}*/
 /*!***************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[3]!./src/components/livekit/styles/ChatVisualizer.module.css ***!
   \***************************************************************************************************************************************************************************************************************************************************************************************************/
@@ -88,7 +62,6 @@
     width: 48vw;
     height: 80vh;
     margin: auto;
-
 }
 
 .ChatVisualizer_messageSection__qTo_G{
@@ -100,3 +73,4 @@
     border-radius: 0px 30px 30px 0px;
     border-width: 1px 1px 1px 1px;
 }
+

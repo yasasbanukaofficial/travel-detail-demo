@@ -1,0 +1,15 @@
+{
+  "name": "travel-detail-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "frontend": "cd frontend && npm run dev",
+    "backend": "cd backend && python main.py dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yasasbanukaofficial/travel-detail-demo.git"
+  },
+  "private": true
+}

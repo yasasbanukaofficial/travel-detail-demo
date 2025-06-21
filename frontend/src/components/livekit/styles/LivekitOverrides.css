@@ -28,3 +28,11 @@
   background-color: #00ffe1 !important;
   height: 40px;
 }
+
+
+/* This overrides the built-in .lk-message-body style to force single line */
+.lk-message-body {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
