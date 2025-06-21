@@ -11,6 +11,16 @@ exports.id = "vendor-chunks/@livekit";
 exports.ids = ["vendor-chunks/@livekit"];
 exports.modules = {
 
+/***/ "(rsc)/./node_modules/@livekit/components-styles/dist/general/index.css":
+/*!************************************************************************!*\
+  !*** ./node_modules/@livekit/components-styles/dist/general/index.css ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (\"25e1203cfc02\");\nif (false) {}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHJzYykvLi9ub2RlX21vZHVsZXMvQGxpdmVraXQvY29tcG9uZW50cy1zdHlsZXMvZGlzdC9nZW5lcmFsL2luZGV4LmNzcyIsIm1hcHBpbmdzIjoiOzs7O0FBQUEsaUVBQWUsY0FBYztBQUM3QixJQUFJLEtBQVUsRUFBRSxFQUF1QiIsInNvdXJjZXMiOlsiRDpcXFB5dGhvblxcdHJhdmVsLWRldGFpbC1kZW1vXFxmcm9udGVuZFxcbm9kZV9tb2R1bGVzXFxAbGl2ZWtpdFxcY29tcG9uZW50cy1zdHlsZXNcXGRpc3RcXGdlbmVyYWxcXGluZGV4LmNzcyJdLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgZGVmYXVsdCBcIjI1ZTEyMDNjZmMwMlwiXG5pZiAobW9kdWxlLmhvdCkgeyBtb2R1bGUuaG90LmFjY2VwdCgpIH1cbiJdLCJuYW1lcyI6W10sImlnbm9yZUxpc3QiOlswXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///(rsc)/./node_modules/@livekit/components-styles/dist/general/index.css\n");
+
+/***/ }),
+
 /***/ "(ssr)/./node_modules/@livekit/components-react/dist/components-BeK2vIib.mjs":
 /*!*****************************************************************************!*\
   !*** ./node_modules/@livekit/components-react/dist/components-BeK2vIib.mjs ***!

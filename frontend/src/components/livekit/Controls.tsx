@@ -12,17 +12,13 @@ export function Controls() {
       <div className={styles.bar}>
             <TrackToggle
               source={Track.Source.Camera}
-              className={`${styles.button} ${styles.toggleBtn} ${!cameraActive ? styles.toggleBtnActive : ''}`}
               onClick={() => setCameraActive(!cameraActive)}
             />
             <TrackToggle
               source={Track.Source.Microphone}
-              className={`${styles.button} ${styles.toggleBtn} ${!micActive ? styles.toggleBtnActive : ''}`}
               onClick={() => setMicActive(!micActive)}
             />
-            <DisconnectButton
-              className={`${styles.button} ${styles.disconnectBtn}`}
-            >
+            <DisconnectButton>
               Disconnect
             </DisconnectButton>
       </div>

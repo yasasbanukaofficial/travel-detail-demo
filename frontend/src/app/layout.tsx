@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "@livekit/components-styles";
+import '../components/livekit/styles/LivekitOverrides.css';
 
 export const metadata: Metadata = {
   title: "Travelop",
