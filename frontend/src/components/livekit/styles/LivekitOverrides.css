@@ -11,7 +11,7 @@
 
 .lk-mic-button,
 .lk-camera-button {
-  background-color: white !important;  /* white bg when OFF */
+  background-color: white !important;
   color: black !important;
   border-color: black !important;
 }
@@ -27,12 +27,4 @@
 .lk-audio-bar.lk-highlighted {
   background-color: #00ffe1 !important;
   height: 40px;
-}
-
-
-/* This overrides the built-in .lk-message-body style to force single line */
-.lk-message-body {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }

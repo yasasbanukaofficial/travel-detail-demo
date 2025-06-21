@@ -49,28 +49,74 @@
 /*!***************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[3]!./src/components/livekit/styles/ChatVisualizer.module.css ***!
   \***************************************************************************************************************************************************************************************************************************************************************************************************/
-.ChatVisualizer_mainContainer__XQLE_{
-    background: transparent;
-    display: flex;
-    width: fit-content;
+.ChatVisualizer_mainContainer__XQLE_ {
+  background: transparent;
+  display: flex;
+  width: fit-content;
 }
 
 .ChatVisualizer_section___XvNS {
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    padding: 10px;
-    width: 48vw;
-    height: 80vh;
-    margin: auto;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  padding: 10px;
+  width: 48vw;
+  height: 80vh;
+  margin: auto;
 }
 
-.ChatVisualizer_messageSection__qTo_G{
-    border-radius: 30px 0px 0px 30px;
-    border-width: 1px 0px 1px 1px;
+.ChatVisualizer_messageSection__qTo_G {
+  border-radius: 30px 0px 0px 30px;
+  border-width: 1px 0px 1px 1px;
+  display: flex;
+  flex-direction: column;
 }
 
-.ChatVisualizer_visualizerSection__aF0n9{
-    border-radius: 0px 30px 30px 0px;
-    border-width: 1px 1px 1px 1px;
+.ChatVisualizer_visualizerSection__aF0n9 {
+  border-radius: 0px 30px 30px 0px;
+  border-width: 1px 1px 1px 1px;
+}
+
+.ChatVisualizer_msgSection__30yST {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.ChatVisualizer_msgRow__rLvif {
+  display: flex;
+  width: 100%;
+}
+
+.ChatVisualizer_agentRow__p_IXI {
+  justify-content: flex-start; /* agent to left */
+}
+
+.ChatVisualizer_userRow__sSRVI {
+  justify-content: flex-end; /* user to right */
+}
+
+.ChatVisualizer_agentMsg__V4VXc,
+.ChatVisualizer_userMsg__riC9N {
+  border: white 2px solid;
+  overflow: hidden;
+  padding: 10px 15px;
+  max-width: 24vw;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.ChatVisualizer_sender__4KWYR {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.ChatVisualizer_userMsg__riC9N{
+  border-radius: 30px 30px 0px 30px;
+}
+
+.ChatVisualizer_agentMsg__V4VXc {
+  border-radius: 30px 30px 30px 0px;
 }
 

@@ -238,6 +238,12 @@
   .mt-9 {
     margin-top: calc(var(--spacing) * 9);
   }
+  .mb-6 {
+    margin-bottom: calc(var(--spacing) * 6);
+  }
+  .mb-8 {
+    margin-bottom: calc(var(--spacing) * 8);
+  }
   .flex {
     display: flex;
   }
@@ -807,13 +813,5 @@ body {
 .lk-audio-bar.lk-highlighted {
   background-color: #00ffe1 !important;
   height: 40px;
-}
-
-
-/* This overrides the built-in .lk-message-body style to force single line */
-.lk-message-body {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 

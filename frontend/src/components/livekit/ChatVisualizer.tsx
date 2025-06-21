@@ -1,6 +1,5 @@
 import {
   BarVisualizer,
-  ChatEntry,
   useLocalParticipant,
   useTrackTranscription,
   useVoiceAssistant,
@@ -13,7 +12,6 @@ export function ChatVisualizer() {
   const { state, audioTrack, agentTranscriptions } = useVoiceAssistant();
   const localParticipant = useLocalParticipant();
 
-  // ✅ USER mic segments
   const { segments: userSegments } = useTrackTranscription({
     publication: localParticipant.microphoneTrack,
     source: Track.Source.Microphone,
@@ -25,14 +23,9 @@ export function ChatVisualizer() {
   useEffect(() => {
     const msgs = [];
 
-    // ✅ Helper to clean up line breaks & extra spaces
-    const clean = (text) =>
-      text?.replace(/\s*\n\s*/g, " ").replace(/\s+/g, " ").trim();
-
-    // User messages
     userSegments?.forEach((seg) => {
       msgs.push({
-        message: clean(seg.text),
+        message: seg.text,
         from: {
           name: "You",
           identity: "user",
@@ -42,10 +35,9 @@ export function ChatVisualizer() {
       });
     });
 
-    // Agent messages
     agentTranscriptions?.forEach((seg) => {
       msgs.push({
-        message: clean(seg.text),
+        message: seg.text,
         from: {
           name: "Agent",
           identity: "agent",
@@ -55,21 +47,35 @@ export function ChatVisualizer() {
       });
     });
 
-    // Sort by timestamp, then limit to last 5
     msgs.sort((a, b) => a.timestamp - b.timestamp);
-    const lastFive = msgs.slice(-5);
 
-    setMessages(lastFive);
+    setMessages(msgs);
   }, [userSegments, agentTranscriptions]);
 
   return (
     <div className={styles.mainContainer}>
       <div className={`${styles.section} ${styles.messageSection}`}>
-        <h1 className="text-[24px] mt-1">Chat</h1>
-        <div className={styles.aiMsg}>
-          {messages.map((msg, index) => (
-            <ChatEntry key={index} entry={msg} />
-          ))}
+        <h1 className="text-[24px] mt-1 mb-8">Chat</h1>
+        <div className={styles.msgSection}>
+          {messages.map((msg, index) => {
+            if (msg.from.identity === "agent") {
+              return (
+                <div key={index} className={`${styles.msgRow} ${styles.agentRow}`}>
+                  <div className={styles.agentMsg}>
+                    <p>{msg.message}</p>
+                  </div>
+                </div>
+              );
+            } else {
+              return (
+                <div key={index} className={`${styles.msgRow} ${styles.userRow}`}>
+                  <div className={styles.userMsg}>
+                    <p>{msg.message}</p>
+                  </div>
+                </div>
+              );
+            }
+          })}
         </div>
       </div>
 
