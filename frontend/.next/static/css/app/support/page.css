@@ -97,20 +97,18 @@
   max-width: 320px;
   line-height: 1.5;
   padding: 16px;
-  background: linear-gradient(360deg, #022a65, #0357ab);
   color: #ffffff;
 }
 
 .ChatVisualizer_chatHeader__WeJS0 {
   display: flex;
-  align-items: center;
   gap: 8px;
 }
 
 .ChatVisualizer_name__9GmPy {
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   font-weight: 600;
-  color: #ffffff;
+  color: #00ffb2;
 }
 
 .ChatVisualizer_time__OTMgv {
@@ -127,7 +125,6 @@
   color: #ffffff;
   white-space: pre-wrap;
   word-wrap: break-word;
-  text-align: left;
 }
 
 .ChatVisualizer_agentContainer__1Ev5B {
@@ -152,4 +149,24 @@
 
 .ChatVisualizer_userBubble__BXLC_ {
   border-radius: 20px 20px 0px 16px;
+}
+
+.ChatVisualizer_agentMsg__V4VXc{
+  text-align: left;
+}
+
+.ChatVisualizer_userMsg__riC9N{
+  text-align: right;
+}
+
+.ChatVisualizer_agentHeader__mDIVB {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-start;
+}
+
+.ChatVisualizer_userHeader__DBNIz {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
 }

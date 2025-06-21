@@ -69,7 +69,7 @@ export function ChatVisualizer() {
                   className={`${styles.chatBubble} ${
                     isAgent ? styles.agentBubble : styles.userBubble
                   }`}>
-                  <div className={styles.chatHeader}>
+                  <div className={`${styles.chatHeader} ${isAgent ? styles.agentHeader : styles.userHeader}`}>
                     <span className={styles.name}>{msg.from.name}</span>
                     <span className={styles.time}>
                       {new Date(msg.timestamp).toLocaleTimeString([], {
@@ -78,7 +78,7 @@ export function ChatVisualizer() {
                       })}
                     </span>
                   </div>
-                  <p className={styles.chatMessage}>{msg.message}</p>
+                  <p className={`${styles.chatMessage} ${isAgent ? styles.agentMsg : styles.userMsg}`}>{msg.message}</p>
                 </div>
               </div>
             );

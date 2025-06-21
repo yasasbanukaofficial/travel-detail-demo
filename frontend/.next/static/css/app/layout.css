@@ -238,9 +238,6 @@
   .mt-9 {
     margin-top: calc(var(--spacing) * 9);
   }
-  .mb-6 {
-    margin-bottom: calc(var(--spacing) * 6);
-  }
   .mb-8 {
     margin-bottom: calc(var(--spacing) * 8);
   }
@@ -812,6 +809,6 @@ body {
 
 .lk-audio-bar.lk-highlighted {
   background-color: #00ffe1 !important;
-  height: 40px;
+  height: 20px;
 }
 
