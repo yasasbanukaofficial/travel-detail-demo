@@ -65,14 +65,14 @@
 }
 
 .ChatVisualizer_messageSection__qTo_G {
-  border-radius: 30px 0px 0px 30px;
-  border-width: 1px 0px 1px 1px;
+  border-radius: 30px 0 0 30px;
+  border-width: 1px 0 1px 1px;
   display: flex;
   flex-direction: column;
 }
 
 .ChatVisualizer_visualizerSection__aF0n9 {
-  border-radius: 0px 30px 30px 0px;
+  border-radius: 0 30px 30px 0;
   border-width: 1px 1px 1px 1px;
 }
 
@@ -84,39 +84,72 @@
   height: 100%;
 }
 
-.ChatVisualizer_msgRow__rLvif {
+.ChatVisualizer_chatContainer__Nk0Ur {
   display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.ChatVisualizer_chatBubble__5y1gM {
+  display: flex;
+  flex-direction: column;
   width: 100%;
+  max-width: 320px;
+  line-height: 1.5;
+  padding: 16px;
+  background: linear-gradient(360deg, #022a65, #0357ab);
+  color: #ffffff;
 }
 
-.ChatVisualizer_agentRow__p_IXI {
-  justify-content: flex-start; /* agent to left */
+.ChatVisualizer_chatHeader__WeJS0 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.ChatVisualizer_userRow__sSRVI {
-  justify-content: flex-end; /* user to right */
+.ChatVisualizer_name__9GmPy {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #ffffff;
 }
 
-.ChatVisualizer_agentMsg__V4VXc,
-.ChatVisualizer_userMsg__riC9N {
-  border: white 2px solid;
-  overflow: hidden;
-  padding: 10px 15px;
-  max-width: 24vw;
-  word-wrap: break-word;
+.ChatVisualizer_time__OTMgv {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.ChatVisualizer_chatMessage__N0Uj_ {
+  font-size: 1rem;
+  font-weight: 400;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #ffffff;
   white-space: pre-wrap;
+  word-wrap: break-word;
+  text-align: left;
 }
 
-.ChatVisualizer_sender__4KWYR {
-  font-weight: bold;
-  margin-bottom: 4px;
+.ChatVisualizer_agentContainer__1Ev5B {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-end;
+  justify-content: flex-end;
 }
 
-.ChatVisualizer_userMsg__riC9N{
-  border-radius: 30px 30px 0px 30px;
+.ChatVisualizer_userContainer__Q0H5T {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
-.ChatVisualizer_agentMsg__V4VXc {
-  border-radius: 30px 30px 30px 0px;
+.ChatVisualizer_agentBubble__7xlTw {
+  border-radius: 20px 20px 20px 0px;
 }
 
+.ChatVisualizer_userBubble__BXLC_ {
+  border-radius: 20px 20px 0px 16px;
+}

@@ -48,7 +48,6 @@ export function ChatVisualizer() {
     });
 
     msgs.sort((a, b) => a.timestamp - b.timestamp);
-
     setMessages(msgs);
   }, [userSegments, agentTranscriptions]);
 
@@ -58,23 +57,31 @@ export function ChatVisualizer() {
         <h1 className="text-[24px] mt-1 mb-8">Chat</h1>
         <div className={styles.msgSection}>
           {messages.map((msg, index) => {
-            if (msg.from.identity === "agent") {
-              return (
-                <div key={index} className={`${styles.msgRow} ${styles.agentRow}`}>
-                  <div className={styles.agentMsg}>
-                    <p>{msg.message}</p>
+            const isAgent = msg.from.identity === "agent";
+            return (
+              <div
+                key={index}
+                 className={`${styles.chatContainer} ${
+                  isAgent ? styles.userContainer : styles.agentContainer
+                 }`}
+              >
+                <div
+                  className={`${styles.chatBubble} ${
+                    isAgent ? styles.agentBubble : styles.userBubble
+                  }`}>
+                  <div className={styles.chatHeader}>
+                    <span className={styles.name}>{msg.from.name}</span>
+                    <span className={styles.time}>
+                      {new Date(msg.timestamp).toLocaleTimeString([], {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                      })}
+                    </span>
                   </div>
+                  <p className={styles.chatMessage}>{msg.message}</p>
                 </div>
-              );
-            } else {
-              return (
-                <div key={index} className={`${styles.msgRow} ${styles.userRow}`}>
-                  <div className={styles.userMsg}>
-                    <p>{msg.message}</p>
-                  </div>
-                </div>
-              );
-            }
+              </div>
+            );
           })}
         </div>
       </div>

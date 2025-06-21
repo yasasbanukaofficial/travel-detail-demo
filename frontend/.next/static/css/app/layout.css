@@ -797,7 +797,7 @@ body {
 
 .lk-mic-button,
 .lk-camera-button {
-  background-color: white !important;  /* white bg when OFF */
+  background-color: white !important;
   color: black !important;
   border-color: black !important;
 }
